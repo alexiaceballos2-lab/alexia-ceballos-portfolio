@@ -1,0 +1,123 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Alexia Ceballos - Writer | Resume & Portfolio</title>
+    <meta name="description" content="Portfolio and resume of Alexia Ceballos, professional writer - fiction, essays, features, editing." />
+    <link rel="stylesheet" href="../a/style.css">
+    <link rel="icon" href="../a/img/favicon.svg" type="image/svg+xml">
+    <link rel="icon" href="../a/img/favicon-32.png" sizes="32x32" type="image/png">
+    <link rel="apple-touch-icon" href="../a/img/apple-touch-icon.png">
+</head>
+<body>
+    <div class="wrap" role="main">
+        <header>
+            <div class="avatar" aria-hidden="true"></div>
+            <div>
+                <h1>Alexia Ceballos<span class="byline"> - Writer & Editor</span></h1>
+                <div class="byline">Specializing in narrative nonfiction, short fiction,<br> reported features, and audience-focused storytelling.<br>Pronouns: she/her, they/them</div>
+                <nav aria-label="Primary">
+                    <a class="btn" href="../index.html">Home</a>
+                    <a class="btn" href="../credits.html">Credits</a>
+                    <a class="btn" href="#resume">Resume</a>
+                    <a class="btn" href="#contact">Contact</a>
+                </nav>
+            </div>
+            <div class="meta">
+                <div class="small">Based in: Remote / New York</div>
+                <div style="margin-top:8px">
+                    <a class="btn" href="../a/resume/aCebalos-resume-apr-2026.pdf" download>Download Résumé</a>
+                </div>
+            </div>
+        </header>
+
+        <main>
+            <section class="card" aria-labelledby="about-heading">
+                <h2 id="about-heading">Recent Work (2025 - present)</h2>
+                <p class="summary"><b>Serialized Fiction (ongoing)</b>
+                    <br>Beginning in January 2025, I have been engaged in a collaborative long-form novel project with over 100,000 words written across multiple chapters and arcs. Focused on character-driven storytelling, dialogue, and serialized pacing, with a strong emphasis on identity and societal pressures on interpersonal dynamics. My contributions span drafting, editing, and narrative development throughout the project.</p>
+                <p class= "summary">You may request a sample of this work at <a href="mailto:alexiaceballos2@gmail.com">alexiaceballos2@gmail.com</a>.</p>
+
+                <hr style="border:none;border-top:1px solid rgba(255,255,255,0.5);margin:18px 0">
+                
+
+                <h2 id="portfolio">Fiction</h2>
+                <div class="grid">
+                    <a class="work" href="ready.html">
+                        <h3>"Are You Ready?" - December 08, 2022</h3>
+                        <p>923 words. A short thriller about a woman preparing her partner for interrogation.</p>
+                    </a>
+
+                    <a class="work" href="prince.html">
+                        <h3>"The Classroom Prince" - October 23, 2022</h3>
+                        <p>102 words. 4-stanza poem about the pressures of academic life.</p>
+                    </a>
+                    <a class="work" href="phantom.html">
+                        <h3>"The Phantom of House Winstrom" - April 20, 2021</h3>
+                        <p>2,147 words. A gothic tale of disappearance and freedom.</p>
+                    </a>
+                    <a class="work" href="monday.html">
+                        <h3>"Again, It's Monday" - February 23, 2021</h3>
+                        <p>623 words. Short story about the parallels between childhood and adult experiences.</p>
+                    </a>
+                </div>
+
+                <hr style="border:none;border-top:1px solid rgba(255,255,255,0.5);margin:18px 0">
+
+                <h2 id="portfolio">Creative Non-Fiction</h2>
+                <div class="grid">
+                    <a class="work" href="magnolia.html">
+                        <h3>"Magnolia" - May 08, 2023</h3>
+                        <p>1,913 words. A short piece about Valentine's Day from the Aromantic perspective.</p>
+                    </a>
+
+                    <a class="work" href="schools-out.html">
+                        <h3>"School's Out... Forever!" - April 28, 2023</h3>
+                        <p>2,289 words. A reflection on my deep-rooted experiences with the education system, which shaped my identity as an autistic writer.</p>
+                    </a>
+
+                    <a class="work" href="covid.html">
+                        <h3>"New York City Still Isn't Over COVID-19" - April 02, 2023</h3>
+                        <p>1,924 words. An examination of the lingering effects of the COVID-19 pandemic on New York City, highlighting the collective trauma that hinders a full return to pre-pandemic normalcy.</p>
+                    </a>
+                </div>
+
+            </section>
+
+            <aside id="shared-aside-placeholder" class="card aside-only" aria-labelledby="contact-heading" data-include="../a/aside.html">
+                <!-- Shared aside will be loaded here from ../a/aside.html -->
+            </aside>
+        </main>
+
+        <footer>
+            <div>© <span id="year"></span> Alexia Ceballos. - Selected work and résumé. Built for clarity and quick review.</div>
+        </footer>
+    </div>
+
+    <script>
+        // Small enhancements
+        document.getElementById('year').textContent = new Date().getFullYear();
+
+        // Simple progressive enhancement: open external portfolio links in new tab if not same origin
+        document.querySelectorAll('a.work').forEach(a=>{
+            try{
+                const url = new URL(a.href, location.href);
+                if(url.origin !== location.origin) a.target = '_blank';
+            }catch(e){}
+        });
+
+        // Load shared aside partial (portfolio pages use ../a/aside.html)
+        function loadSharedAside(path, selector){
+            var el = document.querySelector(selector);
+            if(!el) return;
+            fetch(path).then(function(r){ if(!r.ok) throw new Error('Failed to load'); return r.text(); }).then(function(html){ el.innerHTML = html; }).catch(function(){ });
+        }
+        loadSharedAside('../a/aside.html','#shared-aside-placeholder');
+    </script>
+
+<!-- PURE CSS SNOWFALL -->
+<div class="snow-bg"><div class="snow-layer"></div><div class="snow-layer"></div><div class="snow-layer"></div></div>
+<img src="a/img/se_spacer.png" alt="" width="1" height="1" style="position:absolute; visibility:hidden;">    
+</body>
+</html>

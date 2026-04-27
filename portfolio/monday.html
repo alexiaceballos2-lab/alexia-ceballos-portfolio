@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Alexia Ceballos - Writer | Resume & Portfolio</title>
+    <meta name="description" content="Portfolio and resume of Alexia Ceballos, professional writer - fiction, essays, features, editing." />
+    <link rel="stylesheet" href="../a/style.css">
+    <link rel="icon" href="../a/img/favicon.svg" type="image/svg+xml">
+    <link rel="icon" href="../a/img/favicon-32.png" sizes="32x32" type="image/png">
+    <link rel="apple-touch-icon" href="../a/img/apple-touch-icon.png">
+</head>
+<body>
+    <div class="wrap" role="main">
+                        <nav aria-label="Primary">
+                    <a class="btn" href="../index.html">Home</a>
+                    <a class="btn" href="../credits.html">Credits</a>
+                    <a class="btn" href="index.html">Portfolio</a>
+                    <a class="btn" href="#resume">Resume</a>
+                    <a class="btn" href="#contact">Contact</a>
+                </nav>
+        <h1>Again, It's Monday</h1>
+        <main>
+            <section class="card" aria-labelledby="about-heading">
+                <h2>February 23, 2021</h2>
+                <p class= "summary">Again, it's Monday. I wake up to the screeches of my mother, alerting me to the start of
+another school day. I groggily get out of bed, and change from my pajamas into a pair of jeans
+and a hooded green sweatshirt. I then put on my coat and morosely enter my mother's car. If it
+was up to me, I'd never go to school again. But my mother says that everyone has to work to
+survive, and going to school is my job.</p>
+                <p class= "summary">As I look outside the window, I notice we passed by three
+local playgrounds, two arcades, a GameStop, and a billboard advertising Six Flags. I wish we
+were going to any of those places. Resigned to my fate, I enter school and sluggishly walk to my
+first period class.
+</p>
+                <p class= "summary">Today, I dealt with an hour-long lecture on emperor penguins, classmates demanding
+things I didn't have, and again, having nowhere to sit for lunch. I got a lot of homework from my
+teacher again today: 10 worksheets total, across 4 different school subjects. Does she really think
+we can do all this in one day?
+</p>
+                <p class= "summary">When I return home, my brother is there for me as always. He smiles and hugs me, and
+we get to our homework. He finishes it faster, and waits patiently for me to finish so we can talk
+about our day. Unfortunately, by the time I'm finished, it's well beyond my bedtime. So I just bid
+him and my parents goodnight and climb into bed, dreading again the events of tomorrow.</p>
+                <p class= "summary">Just gotta wait until I grow up, then I won't have to live like this anymore.</p>
+                <hr style="border:none;border-top:1px solid rgba(255,255,255,0.5);margin:18px 0">
+                <p class= "summary">Again, it's Monday. I wake up to the screeches of my alarm clock, alerting me to the start
+of another work day. I groggily get out of bed, and change from my pajamas into a pair of high
+heels and a formal green dress. I then put on my coat and morosely start my old car. If it was up
+to me, I'd never go to work again. But my mother always said that everyone has to work to
+survive, and this is my job now.</p>
+                <p class= "summary">As I drive, I look straight ahead, seeing nothing but the endless stream of other cars. I
+imagine the people driving in them. Is that truck driver a billionaire, going incognito in his work
+clothes and scruffy beard? Is the driver of the police car on the prowl, looking for a fight? Or are
+they hoping for a peaceful day? Is the teenager driving in front of me playing hooky? Or are they
+all like me, living lives of quiet desperation? Eventually, I arrive at the building I've seen every
+day for the past 10 years. Resigned to my fate, I enter the office and sluggishly clock in. </p>
+                <p class= "summary">Today, I dealt with long and boring meetings, coworkers demanding time I didn't have, 
+and, again, not being able to peacefully take a lunch break. My boss started more projects that I'll have to finish
+again: I estimate I'd have to spend an extra 40 hours to get them done. Does he think I can do
+this all in one week?
+</p>
+                <p class= "summary">When I return home, my husband is there for me as always. He smiles and gives me a
+kiss, and I go to work on some of "my" projects while my husband makes dinner. He finishes
+faster, and patiently waits for me to be done so that we can eat together. Unfortunately, by the
+time I'm done, it's well beyond midnight. So I just pack up the food for tomorrow's lunch, kiss
+my husband goodnight, and climb into bed, dreading again the events of tomorrow.</p>
+                <p class= "summary">I'm just glad that it won't be Monday.</p>
+                <hr style="border:none;border-top:1px solid rgba(255,255,255,0.5);margin:18px 0">
+                
+
+            </section>
+
+            <aside id="shared-aside-placeholder" class="card aside-only" aria-labelledby="contact-heading" data-include="../a/aside.html">
+                <!-- Shared aside will be loaded here from ../a/aside.html -->
+            </aside>
+        </main>
+
+        <footer>
+            <div>© <span id="year"></span> Alexia Ceballos. - Selected work and résumé. Built for clarity and quick review.</div>
+        </footer>
+    </div>
+
+    <script>
+        // Small enhancements
+        document.getElementById('year').textContent = new Date().getFullYear();
+
+        // Simple progressive enhancement: open external portfolio links in new tab if not same origin
+        document.querySelectorAll('a.work').forEach(a=>{
+            try{
+                const url = new URL(a.href, location.href);
+                if(url.origin !== location.origin) a.target = '_blank';
+            }catch(e){}
+        });
+
+        // Load shared aside partial (portfolio pages use ../a/aside.html)
+        function loadSharedAside(path, selector){
+            var el = document.querySelector(selector);
+            if(!el) return;
+            fetch(path).then(function(r){ if(!r.ok) throw new Error('Failed to load'); return r.text(); }).then(function(html){ el.innerHTML = html; }).catch(function(){ });
+        }
+        loadSharedAside('../a/aside.html','#shared-aside-placeholder');
+    </script>
+
+<!-- PURE CSS SNOWFALL -->
+<div class="snow-bg"><div class="snow-layer"></div><div class="snow-layer"></div><div class="snow-layer"></div></div>
+<img src="a/img/se_spacer.png" alt="" width="1" height="1" style="position:absolute; visibility:hidden;">    
+</body>
+</html>

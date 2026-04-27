@@ -1,0 +1,30 @@
+name: Deploy to Neocities
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Install Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: '3.1'
+
+      - name: Install Neocities Gem
+        run: gem install neocities
+
+      - name: Push to Neocities
+        env:
+          # The Ruby gem looks for this exact variable name
+          NEOCITIES_API_KEY: ${{ secrets.NEOCITIES_API_TOKEN }}
+        run: |
+          # Use --site to be 100% clear which site we are pushing to
+          neocities push . --site alexia-ceballos --exclude ".git/*" --exclude ".github/*" --verbose --prune
+
